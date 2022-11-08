@@ -14,7 +14,7 @@ public class AutomationChallenge_1 {
 			System.out.println("Can you guess the number between " + min + " and " + max + "?");
 			int sysGenNumber = (int) (Math.random() * (max - min + 1) + min);
 
-			while (attempt <= 3) {
+			while (attempt <= 5) {
 				System.out.println("Attempt " + attempt);
 				int userGivenNumber = sc.nextInt();
 				if (sysGenNumber == userGivenNumber) {
