@@ -29,7 +29,7 @@ public class AutomationChallenge_2 {
 
 			expectedSetValue = sumOfInputs / 2;
 			if (sumOfInputs % 2 == 0) {
-				System.out.println("Splitting is possible");
+	
 				List<Integer> tempList1 = new ArrayList<>();
 
 				int j = 0;
@@ -44,8 +44,13 @@ public class AutomationChallenge_2 {
 							System.out.println("First set->" + tempList1);
 							break;
 						} else if (addedValue > expectedSetValue) {
-							addedValue -= initialList.get(j);
-							tempList1.remove(j);
+							try {
+								addedValue -= initialList.get(j);
+								initialListSecondary.add(initialList.get(j));
+								tempList1.remove(j);
+							} catch (Exception e) {
+								tempList1.remove(initialList.get(j));
+							}
 						}
 					}
 					j++;
