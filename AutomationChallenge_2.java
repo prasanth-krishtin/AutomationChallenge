@@ -12,13 +12,14 @@ public class AutomationChallenge_2 {
 		List<Integer> initialListSecondary = new ArrayList<>();
 		int sumOfInputs = 0;
 		int expectedSetValue = 0;
+		int userInput = 0;
 		try {
 			System.out.println("Enter the size of the list");
 			int size = sc.nextInt();
 			System.out.println("Enter the " + size + " numbers one by one");
 			int i = 0;
 			while (i < size) {
-				int userInput = sc.nextInt();
+				userInput = sc.nextInt();
 				initialList.add(userInput);
 				initialListSecondary.add(userInput);
 				i++;
@@ -28,8 +29,8 @@ public class AutomationChallenge_2 {
 			}
 
 			expectedSetValue = sumOfInputs / 2;
-			if (sumOfInputs % 2 == 0) {
-	
+			if (sumOfInputs % 2 == 0 && expectedSetValue % userInput != 1) {
+
 				List<Integer> tempList1 = new ArrayList<>();
 
 				int j = 0;
