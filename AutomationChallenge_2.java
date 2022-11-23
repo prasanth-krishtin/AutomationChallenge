@@ -1,6 +1,7 @@
 package automationChallenge_2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,9 +28,10 @@ public class AutomationChallenge_2 {
 			for (int entity : initialList) {
 				sumOfInputs += entity;
 			}
-
+			Collections.sort(initialList, Collections.reverseOrder());
+			Collections.sort(initialListSecondary, Collections.reverseOrder());
 			expectedSetValue = sumOfInputs / 2;
-			if (sumOfInputs % 2 == 0 && expectedSetValue % userInput != 1) {
+			if (sumOfInputs % 2 == 0) {
 
 				List<Integer> tempList1 = new ArrayList<>();
 
@@ -43,20 +45,16 @@ public class AutomationChallenge_2 {
 						initialListSecondary.remove(initialList.get(j));
 						if (addedValue == expectedSetValue) {
 							System.out.println("First set->" + tempList1);
+							System.out.println("Second set->" + initialListSecondary);
 							break;
 						} else if (addedValue > expectedSetValue) {
-							try {
-								addedValue -= initialList.get(j);
-								initialListSecondary.add(initialList.get(j));
-								tempList1.remove(j);
-							} catch (Exception e) {
-								tempList1.remove(initialList.get(j));
-							}
+							addedValue -= initialList.get(j);
+							initialListSecondary.add(initialList.get(j));
+							tempList1.remove(initialList.get(j));
 						}
 					}
 					j++;
 				}
-				System.out.println("Second set->" + initialListSecondary);
 
 			} else {
 				System.out.println("Cannot split with given condition");
